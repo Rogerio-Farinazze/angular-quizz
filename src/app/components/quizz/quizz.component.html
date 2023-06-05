@@ -1,0 +1,22 @@
+<div class="bg-gray-100 shadow-xl p-6 w-full">
+  <h1 class="text-xl font-bold text-gray-800">{{ title }}</h1>
+</div>
+<div class="flex-col flex justify-center items-center py-6">
+  <div *ngIf=!finished class="p-6 w-full">
+    <h2 class="text-5xl text-blue-900">{{ questionSelected.question }}</h2>
+  </div>
+  <div *ngIf=!finished class="p-6 w-full">
+    <button
+      *ngFor="let option of questionSelected.options"
+      (click)="playerChoose(option.alias)"
+      class="bg-white rounded-md border-b-4 border-blue-700 shadow-lg w-full p-6 my-2 text-left
+            hover:bg-blue-700 hover:border-white hover:text-white">
+      {{option.name}}
+    </button>
+  </div>
+
+  <div *ngIf=finished class="p-6 w-full">
+    <h2 class="text-2xl text-gray-700">O seu resultado é:</h2>
+    <p class="text-6xl text-blue-900">{{answerSelected}}</p>
+  </div>
+</div>
